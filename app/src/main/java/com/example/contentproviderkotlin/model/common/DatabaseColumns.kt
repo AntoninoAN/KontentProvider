@@ -1,4 +1,4 @@
-package com.example.model.common
+package com.example.contentproviderkotlin.model.common
 
 object ColumnSchema {
     const val TABLE_NAME = "users"
