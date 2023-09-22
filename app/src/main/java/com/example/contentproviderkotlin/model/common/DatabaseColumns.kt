@@ -7,3 +7,7 @@ object ColumnSchema {
     const val COLUMN_ADDRESS = "address"
     const val COLUMN_PHONE_NUMBER = "phone_number"
 }
+
+enum class UriTypes {
+    FULL, ITEM
+}

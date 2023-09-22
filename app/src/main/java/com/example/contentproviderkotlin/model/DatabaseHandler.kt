@@ -1,8 +1,10 @@
 package com.example.contentproviderkotlin.model
 
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import com.example.contentproviderkotlin.di.CustomApplication
+import com.example.contentproviderkotlin.model.common.ColumnSchema
 import com.example.contentproviderkotlin.model.common.DATABASE_NAME
 import com.example.contentproviderkotlin.model.database.UserDataBaseLegacy
 
@@ -28,4 +30,18 @@ object DatabaseHandler {
     private fun createDatabase(context: Context, databaseName: String, databaseVersion: Int): UserDataBaseLegacy {
         return UserDataBaseLegacy(context, databaseName, databaseVersion)
     }
+
+    fun queryDB(): Cursor? =
+        userDataBaseRead.query(
+            ColumnSchema.TABLE_NAME,
+            arrayOf(ColumnSchema.COLUMN_FIRST_NAME,
+                ColumnSchema.COLUMN_LAST_NAME,
+                ColumnSchema.COLUMN_ADDRESS,
+                ColumnSchema.COLUMN_PHONE_NUMBER),
+            null,
+            null,
+            null,
+            null,
+            null
+        )
 }
